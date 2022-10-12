@@ -7,11 +7,8 @@
    
 }
 .carousel-wrapper {
-    z-index: 1;
-    
     
 }
-
 .prev, .next {
     
     position: absolute;
@@ -20,7 +17,7 @@
     left: 240px;
     border: none;
     background: none;
-    z-index: 0;
+    
     img {
         width: 31px;
         height: 50px;
