@@ -143,4 +143,41 @@ const slider = tns({
     validateForms('#consultation form');
     validateForms('#order form');
     
-  });
+    //phone mask
+    $('input[name=phone]').mask("+7 (999) 999-99-99");
+      
+    //отправка писем
+    $('form').submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "mailer/smart.php",
+        data: $(this).serialize()
+      }).done(function() {
+        $(this).find("inpput").val("");
+        $('#consultation, #order').fadeOut('slow');
+        $('.overlay, #thx').fadeIn('slow');
+
+        $('form').trigger('reset');
+      });
+      return false;
+    });
+//smooth scroll and page up
+    $(window).scroll(function() {
+      if ($(this).scrollTop()>1200) {
+          $('.pageup').fadeIn();
+
+      } else {
+        $('.pageup').fadeOut();
+      }
+    });
+    $("a[href^='#'").click(function() {
+      var _href=$(this).attr("href");
+      $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+      return false;
+    });
+
+//animated WOW
+  new WOW().init();
+   });
+  

@@ -39,4 +39,27 @@
             color: #ff0000; 
         }  
     }
-}
+    &__icon {
+        &_animatedheart {
+            animation-name: heartbeat;
+            animation-duration: 4s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+        &_animatedcup {
+            animation: cupscroll 4s ease infinite;
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+        &_animatedshoe {
+            animation: shoerun linear 4s  infinite;
+            &:hover {
+                animation-play-state: paused;
+            }
+        }       
+    }  
+}  
